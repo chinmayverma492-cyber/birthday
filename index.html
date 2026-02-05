@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Anshika 🎉</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle, #ff758c, #ff7eb3);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  padding: 30px;
+  margin-top: 15vh;
+}
+
+h1 {
+  font-size: 2.8rem;
+  min-height: 70px;
+}
+
+p {
+  font-size: 1.3rem;
+  margin: 20px;
+}
+
+.cake {
+  font-size: 5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Gift Box */
+.gift {
+  font-size: 4rem;
+  cursor: pointer;
+  margin-top: 20px;
+  animation: shake 1.5s infinite;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Fireworks */
+.firework {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: gold;
+  border-radius: 50%;
+  animation: explode 1.5s linear infinite;
+}
+
+@keyframes explode {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(15); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 Real Happy Birthday Song -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-happybirthday.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+  <div class="cake">🎂</div>
+
+  <!-- 🎤 Auto Typed Name -->
+  <h1 id="type"></h1>
+
+  <p>🎉 Today is special because **YOU** are special 💖</p>
+
+  <!-- 🎁 Gift -->
+  <div class="gift" onclick="openGift()">🎁</div>
+
+  <!-- 💌 Message -->
+  <p id="message" style="display:none;">
+    💌 Dear Anshika (#BUTKI),<br><br>
+    May your smile always shine brighter than fireworks ✨  
+    May your dreams fly higher every year 🚀  
+    And may happiness follow you everywhere 💕  
+    <br><br>
+    Happy Birthday once again! 🎉🎂
+  </p>
+</div>
+
+<script>
+/* Typing Effect */
+let text = "🎤 ANSHIKA (#BUTKI) 🎉";
+let i = 0;
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("type").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 120);
+  }
+}
+typeEffect();
+
+/* Gift Click */
+function openGift() {
+  document.querySelector(".gift").innerHTML = "🎉🎊";
+  document.getElementById("message").style.display = "block";
+}
+
+/* Fireworks */
+setInterval(() => {
+  let firework = document.createElement("div");
+  firework.className = "firework";
+  firework.style.left = Math.random() * 100 + "vw";
+  firework.style.top = Math.random() * 100 + "vh";
+  firework.style.background = `hsl(${Math.random()*360},100%,60%)`;
+  document.body.appendChild(firework);
+  setTimeout(() => firework.remove(), 1500);
+}, 300);
+</script>
+
+</body>
+</html>
